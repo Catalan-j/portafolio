@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Portafolio de Artista</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: hsl(190, 23%, 55%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .contenedor {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contenedor img {
+            width: 200px;
+            height: auto;            
+        }
+
+        .carrusel {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgb(0, 0, 0);
+            margin-top: 20px;
+        }
+
+        #imagen-carrusel {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .botones {
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 10px;
+        }
+
+        .botones button {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            font-size: 2rem;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        p {
+            max-width: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Leonardo Di Ser Piero Da Vinci</h1>
+
+    <div class="contenedor">
+        <img src="Leonardo.jpeg" alt="Leonardo">
+
+        <div>
+            <h2>¿Quién es?</h2>
+            <p>
+                Leonardo Di Ser Piero Da Vinci fue un polímata italiano del renacimiento, <br>
+                considerado uno de los genios más grandes de la historia.<br>
+                Destacó como pintor, escultor, arquitecto, ingeniero, anatomista, inventor, músico y escritor.<br>
+                Su curiosidad insaciable y su talento en múltiples disciplinas lo convirtieron en el arquetipo del<br>
+                HOMBRE DEL RENACIMIENTO.
+            </p>
+
+            <div class="carrusel">
+                <img id="imagen-carrusel" src="hombre vitruvio.jpg" alt="hombre vitruvio">
+                <div class="botones">
+                    <button onclick="anteriorImagen()">&#10094;</button>
+                    <button onclick="siguienteImagen()">&#10095;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const imagenes = [
+            "hombre vitruvio.jpg",
+            "la ultima cena.jpg",
+            "la virgen de las rocas.jpg",
+            "monalisa.jpeg",
+            "san juanbautista.jpg"
+        ];
+        let indice = 0;
+
+        function mostrarImagen() {
+            document.getElementById("imagen-carrusel").src = imagenes[indice];
+        }
+
+        function siguienteImagen() {
+            indice++;
+            if (indice >= imagenes.length) indice = 0;
+            mostrarImagen();
+        }
+
+        function anteriorImagen() {
+            indice--;
+            if (indice < 0) indice = imagenes.length - 1;
+            mostrarImagen();
+        }
+
+        // Cambiar imagen automáticamente cada 3 segundos
+        setInterval(siguienteImagen, 3000);
+    </script>
+</body>
+</html>
