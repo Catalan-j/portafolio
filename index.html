@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Portafolio de Artista</title>
+
+    <!-- Favicon relacionado a Leonardo da Vinci -->
+    <link rel="icon" type="image/jpg" href="imagenes/Leonardo.jpg">
+
     <link rel="stylesheet" href="estilos.css">
     <style>
         body {
@@ -10,14 +14,28 @@
             margin: 0;
             background: hsl(190, 23%, 55%);
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            flex-direction: column;
+        }
+
+        nav {
+            background: #004c4c;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
         }
 
         h1 {
             text-align: center;
+            margin-top: 20px;
         }
 
         .contenedor {
@@ -25,11 +43,12 @@
             align-items: flex-start;
             gap: 20px;
             margin-top: 20px;
+            max-width: 1000px;
         }
 
         .contenedor img {
             width: 200px;
-            height: auto;            
+            height: auto;
         }
 
         .carrusel {
@@ -68,6 +87,11 @@
             border-radius: 50%;
         }
 
+        section {
+            margin: 40px 20px;
+            max-width: 800px;
+        }
+
         p {
             max-width: 400px;
         }
@@ -75,10 +99,16 @@
 </head>
 
 <body>
-    <h1>Leonardo Di Ser Piero Da Vinci</h1>
 
-    <div class="contenedor">
-        <img src="Leonardo.jpeg" alt="Leonardo">
+    <!-- Menú de navegación con enlaces relativos y absolutos -->
+    <nav>
+        <a href="curiosidades.html">Curiosidades</a>
+        <a href="https://es.wikipedia.org/wiki/Leonardo_da_Vinci" target="_blank">Wikipedia</a>
+    </nav>
+
+    <h1>Leonardo Di Ser Piero Da Vinci</h1>
+        <!-- Imagen principal de Leonardo da Vinci -->
+        <img src="imagenes/Leonardo.jpg" alt="Leonardo">
 
         <div>
             <h2>¿Quién es?</h2>
@@ -90,8 +120,9 @@
                 HOMBRE DEL RENACIMIENTO.
             </p>
 
+            <!-- Carrusel de obras de arte -->
             <div class="carrusel">
-                <img id="imagen-carrusel" src="hombre vitruvio.jpg" alt="hombre vitruvio">
+                <img id="imagen-carrusel" src="imagenes/hombre vitruvio.jpg" alt="hombre vitruvio">
                 <div class="botones">
                     <button onclick="anteriorImagen()">&#10094;</button>
                     <button onclick="siguienteImagen()">&#10095;</button>
@@ -99,15 +130,15 @@
             </div>
         </div>
     </div>
-
     <script>
+        // Lista de imágenes del carrusel (rutas relativas)
         const imagenes = [
-            "hombre vitruvio.jpg",
-            "la ultima cena.jpg",
-            "la virgen de las rocas.jpg",
-            "monalisa.jpeg",
-            "san juanbautista.jpg"
+            "imagenes/la ultima cena.jpg",
+            "imagenes/la virgen de las rocas.jpg",
+            "imagenes/mona lisa.jpg",
+            "imagenes/san juanbautista.jpg"
         ];
+
         let indice = 0;
 
         function mostrarImagen() {
@@ -126,8 +157,9 @@
             mostrarImagen();
         }
 
-        // Cambiar imagen automáticamente cada 3 segundos
+        // Cambio automático de imagen cada 3 segundos
         setInterval(siguienteImagen, 3000);
     </script>
+
 </body>
 </html>
