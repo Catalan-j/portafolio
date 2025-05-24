@@ -1,0 +1,129 @@
+/* FUENTES*/
+/* Fuente interna Merriweather */
+@font-face {
+    font-family: 'MerriweatherVariable';
+    src: url('fuente/Merriweather-Italic-VariableFont_opsz,wdth,wght.ttf') format('truetype');
+    font-weight: 100 900; 
+    font-stretch: 75% 100%; 
+    font-style: italic;
+}
+
+
+/* Uso de fuente */
+body {
+    font-family: 'MerriweatherVariable', serif;
+}
+
+h1, h2 {
+    font-family: 'Roboto', sans-serif; /* Fuente externa Roboto */
+}
+/*ESTILOS GENERALES */
+body {
+    margin: 0;
+    background: hsl(190, 23%, 55%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'MerriweatherVariable', serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+/*NAVEGACIÓN*/
+nav {
+    background: #004c4c;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffcc00;
+}
+
+/*TÍTULOS*/
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    transition: color 0.3s ease;
+    cursor: default;
+}
+
+h1:hover {
+    color: #ffe066;
+}
+
+/*CONTENEDOR*/
+.contenedor {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 20px;
+    max-width: 1000px;
+}
+
+.contenedor img {
+    width: 200px;
+    height: auto;
+}
+
+/*CARRUSEL*/
+.carrusel {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgb(0, 0, 0);
+    margin-top: 20px;
+}
+
+#imagen-carrusel {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.botones {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 10px;
+}
+
+.botones button {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.botones button:hover {
+    background-color: rgba(255, 204, 0, 0.8);
+}
+
+/*SECCIONES Y PÁRRAFOS*/
+section {
+    margin: 40px 20px;
+    max-width: 800px;
+}
+
+p {
+    max-width: 400px;
+}
