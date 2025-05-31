@@ -3,49 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>Portafolio de Artista</title>
-    <link rel="icon" type="image/jpg" href="imagenes/Leonardo.jpg">
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/jpg" href="./assets/icon/icon.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
 
-    <!-- Menú de navegación-->
-    <nav>
-        <a href="curiosidades.html">Curiosidades</a>
-        <a href="https://es.wikipedia.org/wiki/Leonardo_da_Vinci" target="_blank">Wikipedia</a>
-    </nav>
+    <header>
+        <h1>Leonardo Di Ser Piero Da Vinci</h1>
+        <nav>
+            <a href="./pages/curiosidades.html">Curiosidades</a>
+            <a href="https://es.wikipedia.org/wiki/Leonardo_da_Vinci" target="_blank">Wikipedia</a>
+        </nav>
+    </header>
 
-    <h1>Leonardo Di Ser Piero Da Vinci</h1>
-        <!-- Imagen principal de Leonardo da Vinci -->
-        <img src="imagenes/Leonardo.jpg" alt="Leonardo">
+    <img src="./assets/images/Leonardo.jpg" alt="Leonardo">
 
-        <div>
-            <h2>¿Quién es?</h2>
-            <p>
-                Leonardo Di Ser Piero Da Vinci fue un polímata italiano del renacimiento, <br>
-                considerado uno de los genios más grandes de la historia.<br>
-                Destacó como pintor, escultor, arquitecto, ingeniero, anatomista, inventor, músico y escritor.<br>
-                Su curiosidad insaciable y su talento en múltiples disciplinas lo convirtieron en el arquetipo del<br>
-                HOMBRE DEL RENACIMIENTO.
-            </p>
+    <div>
+        <h2>¿Quién es?</h2>
+        <p>
+            Leonardo Di Ser Piero Da Vinci fue un polímata italiano del renacimiento, <br>
+            considerado uno de los genios más grandes de la historia.<br>
+            Destacó como pintor, escultor, arquitecto, ingeniero, anatomista, inventor, músico y escritor.<br>
+            Su curiosidad insaciable y su talento en múltiples disciplinas lo convirtieron en el arquetipo del<br>
+            HOMBRE DEL RENACIMIENTO.
+        </p>
 
-            <!-- Carrusel de obras de arte -->
-            <div class="carrusel">
-                <img id="imagen-carrusel" src="imagenes/hombre vitruvio.jpg" alt="hombre vitruvio">
-                <div class="botones">
-                    <button onclick="anteriorImagen()">&#10094;</button>
-                    <button onclick="siguienteImagen()">&#10095;</button>
-                </div>
+        <div class="carrusel">
+            <img id="imagen-carrusel" src="./assets/images/hombre vitruvio.jpg" alt="hombre vitruvio">
+            <div class="botones">
+                <button onclick="anteriorImagen()">&#10094;</button>
+                <button onclick="siguienteImagen()">&#10095;</button>
             </div>
         </div>
     </div>
+
     <script>
-        // Lista de imágenes del carrusel
         const imagenes = [
-            "imagenes/la ultima cena.jpg",
-            "imagenes/la virgen de las rocas.jpg",
-            "imagenes/mona lisa.jpg",
-            "imagenes/san juanbautista.jpg"
+            "./assets/images/la ultima cena.jpg",
+            "./assets/images/la virgen de las rocas.jpg",
+            "./assets/images/mona lisa.jpg",
+            "./assets/images/san juanbautista.jpg"
         ];
 
         let indice = 0;
@@ -66,7 +65,6 @@
             mostrarImagen();
         }
 
-        // Cambio automático de imagen cada 3 segundos
         setInterval(siguienteImagen, 3000);
     </script>
 
