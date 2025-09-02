@@ -7,66 +7,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
 </head>
-
 <body>
 
-    <header>
-        <h1>Leonardo Di Ser Piero Da Vinci</h1>
-        <nav>
+    <header class="encabezado">
+        <div class="titulo">
+            <h1>Leonardo Da Vinci</h1>
+            <h2>Genio del Renacimiento</h2>
+        </div>
+        <div class="menu-icono" onclick="toggleMenu()">☰</div>
+        <nav id="menu">
+            <a href="./index.html">Inicio</a>
             <a href="./pages/curiosidades.html">Curiosidades</a>
             <a href="https://es.wikipedia.org/wiki/Leonardo_da_Vinci" target="_blank">Wikipedia</a>
         </nav>
     </header>
 
-    <img src="./assets/images/Leonardo.jpg" alt="Leonardo">
+    <main>
+        <section class="contenido-lateral">
+            <img src="./assets/images/Leonardo.jpg" alt="Leonardo" class="img-principal">
+            <p class="descripcion">
+                Leonardo Da Vinci fue un genio del Renacimiento. Destacó como pintor, inventor, ingeniero y más. Su obra y pensamiento marcaron la historia de la humanidad.
+            </p>
+        </section>
 
-    <div>
-        <h2>¿Quién es?</h2>
-        <p>
-            Leonardo Di Ser Piero Da Vinci fue un polímata italiano del renacimiento, <br>
-            considerado uno de los genios más grandes de la historia.<br>
-            Destacó como pintor, escultor, arquitecto, ingeniero, anatomista, inventor, músico y escritor.<br>
-            Su curiosidad insaciable y su talento en múltiples disciplinas lo convirtieron en el arquetipo del<br>
-            HOMBRE DEL RENACIMIENTO.
-        </p>
-
-        <div class="carrusel">
-            <img id="imagen-carrusel" src="./assets/images/hombre vitruvio.jpg" alt="hombre vitruvio">
-            <div class="botones">
-                <button onclick="anteriorImagen()">&#10094;</button>
-                <button onclick="siguienteImagen()">&#10095;</button>
+        <section class="galeria">
+            <h2>Galería de Obras</h2>
+            <div class="galeria-flex">
+                <img src="./assets/images/mona lisa.jpg" alt="Mona Lisa">
+                <img src="./assets/images/la ultima cena.jpg" alt="La Última Cena">
+                <img src="./assets/images/la virgen de las rocas.jpg" alt="La Virgen de las Rocas">
+                <img src="./assets/images/san juanbautista.jpg" alt="San Juan Bautista">
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
 
     <script>
-        const imagenes = [
-            "./assets/images/la ultima cena.jpg",
-            "./assets/images/la virgen de las rocas.jpg",
-            "./assets/images/mona lisa.jpg",
-            "./assets/images/san juanbautista.jpg"
-        ];
-
-        let indice = 0;
-
-        function mostrarImagen() {
-            document.getElementById("imagen-carrusel").src = imagenes[indice];
+        // Menú hamburguesa
+        function toggleMenu() {
+            const menu = document.getElementById("menu");
+            menu.classList.toggle("activo");
         }
-
-        function siguienteImagen() {
-            indice++;
-            if (indice >= imagenes.length) indice = 0;
-            mostrarImagen();
-        }
-
-        function anteriorImagen() {
-            indice--;
-            if (indice < 0) indice = imagenes.length - 1;
-            mostrarImagen();
-        }
-
-        setInterval(siguienteImagen, 3000);
     </script>
 
 </body>
 </html>
+

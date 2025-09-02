@@ -1,158 +1,148 @@
-/* FUENTES*/
+/* FUENTES */
 /* Fuente interna Merriweather */
 @font-face {
     font-family: 'MerriweatherVariable';
-    src: url('fuente/Merriweather-Italic-VariableFont_opsz,wdth,wght.ttf') format('truetype');
-    font-weight: 100 900; 
-    font-stretch: 75% 100%; 
+    src: url('fuente/Merriweather-Italic-VariableFont.ttf') format('truetype');
+    font-weight: 100 900;
+    font-stretch: 75% 100%;
     font-style: italic;
 }
 
-
-/* Uso de fuente */
-body {
-    font-family: 'MerriweatherVariable', serif;
-}
-
+/* Fuente externa: Roboto para títulos */
 h1, h2 {
-    font-family: 'Roboto', sans-serif; /* Fuente externa Roboto */
+    font-family: 'Roboto', sans-serif;
 }
-/*ESTILOS GENERALES */
+
+/* ESTILOS GENERALES */
 body {
     margin: 0;
     background: hsl(190, 23%, 55%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
     font-family: 'MerriweatherVariable', serif;
-    font-weight: 400;
     font-style: italic;
+    font-weight: 400;
 }
-/* HEADER */
-header {
+
+/* ENCABEZADO FLEX */
+.encabezado {
     background-color: #003333;
     color: white;
-    padding: 20px 0;
+    display: flex;
+    justify-content: space-between; /* títulos al centro, menú a la derecha */
+    align-items: center;
+    padding: 10px 20px;
+    flex-wrap: wrap;
+}
+
+.titulo {
+    text-align: center;
+    flex: 1;
+}
+
+.titulo h1 {
+    margin: 0;
+}
+
+.titulo h2 {
+    margin: 0;
+    font-weight: normal;
+}
+
+/* MENÚ HAMBURGUESA */
+.menu-icono {
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+/* Menú oculto y visible cuando tiene clase .activo */
+nav#menu {
+    display: none;
+    flex-direction: column;
+    background-color: #004c4c;
     width: 100%;
     text-align: center;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 2rem;
+nav#menu.activo {
+    display: flex;
 }
 
-header nav {
+nav#menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    transition: background 0.3s;
+}
+
+nav#menu a:hover {
+    background-color: #007777;
+}
+
+/* CUERPO PRINCIPAL */
+.contenido-lateral {
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    margin: 20px auto;
+}
+
+/* Imagen principal */
+.img-principal {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+    display: block;
+}
+
+/* Descripción */
+.descripcion {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* GALERÍA FLEX */
+.galeria {
+    margin: 40px auto;
+    max-width: 1000px;
+    text-align: center;
+}
+
+.galeria-flex {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
     margin-top: 10px;
 }
 
-header nav a {
-    color: #ffe066;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-header nav a:hover {
-    color: #ffffff;
-}
-
-/*NAVEGACIÓN*/
-nav {
-    background: #004c4c;
-    width: 100%;
-    padding: 10px;
-    text-align: center;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-nav a:hover {
-    color: #ffcc00;
-}
-
-/*TÍTULOS*/
-h1 {
-    text-align: center;
-    margin-top: 20px;
-    transition: color 0.3s ease;
-    cursor: default;
-}
-
-h1:hover {
-    color: #ffe066;
-}
-
-/*CONTENEDOR*/
-.contenedor {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    margin-top: 20px;
-    max-width: 1000px;
-}
-
-.contenedor img {
+.galeria-flex img {
     width: 200px;
-    height: auto;
-}
-
-/*CARRUSEL*/
-.carrusel {
-    position: relative;
-    width: 600px;
-    height: 400px;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgb(0, 0, 0);
-    margin-top: 20px;
-}
-
-#imagen-carrusel {
-    width: 100%;
-    height: 100%;
+    height: 200px;
     object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
 }
 
-.botones {
-    position: absolute;
-    width: 100%;
-    top: 50%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-    padding: 0 10px;
+.galeria-flex img:hover {
+    transform: scale(1.05);
 }
 
-.botones button {
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    font-size: 2rem;
+/* LISTA CURIOSIDADES */
+.lista-curiosidades {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.lista-curiosidades li {
+    background: rgba(255, 255, 255, 0.8);
+    margin: 10px 0;
     padding: 10px;
-    cursor: pointer;
-    border-radius: 50%;
-    transition: background-color 0.3s ease;
-}
-
-.botones button:hover {
-    background-color: rgba(255, 204, 0, 0.8);
-}
-
-/*SECCIONES Y PÁRRAFOS*/
-section {
-    margin: 40px 20px;
-    max-width: 800px;
-}
-
-p {
-    max-width: 400px;
+    border-radius: 5px;
 }

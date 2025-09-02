@@ -3,27 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Curiosidades de Leonardo</title>
-    <link rel="icon" type="image/jpg" href="./assets/icon/icon.jpg">
+    <link rel="icon" type="image/jpg" href="../assets/icon/icon.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
 </head>
-
 <body>
 
-    <header>
-        <h1>Curiosidades de Leonardo Da Vinci</h1>
-        <nav>
+    <header class="encabezado">
+        <div class="titulo">
+            <h1>Leonardo Da Vinci</h1>
+            <h2>Curiosidades</h2>
+        </div>
+        <div class="menu-icono" onclick="toggleMenu()">☰</div>
+        <nav id="menu">
             <a href="../index.html">Inicio</a>
+            <a href="../pages/curiosidades.html">Curiosidades</a>
+            <a href="https://es.wikipedia.org/wiki/Leonardo_da_Vinci" target="_blank">Wikipedia</a>
         </nav>
     </header>
 
-    <ul>
-        <li>Leonardo escribía de derecha a izquierda, como si usara un espejo.</li>
-        <li>Diseñó máquinas voladoras siglos antes de que existieran los aviones.</li>
-        <li>Era zurdo, vegetariano y amante de los animales.</li>
-        <li>Muchos de sus inventos no se construyeron sino hasta el siglo XX.</li>
-        <li>Solo se conocen unas 15 pinturas terminadas de su autoría.</li>
-    </ul>
+    <main>
+        <section class="galeria">
+            <h2>¿Sabías que...?</h2>
+            <ul class="lista-curiosidades">
+                <li>Leonardo escribía de derecha a izquierda, como si usara un espejo.</li>
+                <li>Diseñó máquinas voladoras siglos antes de que existieran los aviones.</li>
+                <li>Era zurdo, vegetariano y amante de los animales.</li>
+                <li>Muchos de sus inventos no se construyeron sino hasta el siglo XX.</li>
+                <li>Solo se conocen unas 15 pinturas terminadas de su autoría.</li>
+            </ul>
+        </section>
+    </main>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("menu");
+            menu.classList.toggle("activo");
+        }
+    </script>
 
 </body>
 </html>
