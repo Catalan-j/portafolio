@@ -1,148 +1,152 @@
-/* FUENTES */
-/* Fuente interna Merriweather */
-@font-face {
-    font-family: 'MerriweatherVariable';
-    src: url('fuente/Merriweather-Italic-VariableFont.ttf') format('truetype');
-    font-weight: 100 900;
-    font-stretch: 75% 100%;
-    font-style: italic;
-}
-
-/* Fuente externa: Roboto para títulos */
-h1, h2 {
-    font-family: 'Roboto', sans-serif;
-}
-
-/* ESTILOS GENERALES */
+/* ===== FUENTES ===== */
 body {
-    margin: 0;
-    background: hsl(190, 23%, 55%);
-    font-family: 'MerriweatherVariable', serif;
-    font-style: italic;
-    font-weight: 400;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f0f4f5;
+  color: #222;
+
+  /* layout para mantener el footer abajo */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-/* ENCABEZADO FLEX */
-.encabezado {
-    background-color: #003333;
-    color: white;
+/* ===== HEADER (BEM) ===== */
+.header {
+  background-color: #003366;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  flex-wrap: wrap;
+}
+
+.header__titulo {
+  text-align: center;
+  flex: 1;
+}
+
+.header__titulo--principal {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.header__titulo--sub {
+  margin: 0;
+  font-weight: 300;
+  font-size: 1.1rem;
+}
+
+.header__menu-icono {
+  font-size: 1.6rem;
+  cursor: pointer;
+  display: block; /* SIEMPRE visible */
+}
+
+/* nav oculta por defecto */
+.header__nav {
+  display: none;
+  gap: 20px;
+}
+
+/* nav activa (cuando se abre el menú) */
+.header__nav--activo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  background-color: #004080;
+}
+
+.header__nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.header__nav-link:hover {
+  color: #ffcc66;
+}
+
+/* ===== MAIN ===== */
+.main {
+  padding: 20px;
+  text-align: center;
+  flex: 1; /* mantiene footer abajo */
+}
+
+.main__presentacion {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.main__presentacion-img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.main__presentacion-texto {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+/* ===== CURIOSIDADES ===== */
+.curiosidades {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.curiosidades__titulo {
+  color: #003366;
+}
+
+.curiosidades__lista {
+  list-style: none;
+  padding: 0;
+}
+
+.curiosidades__item {
+  background: #ffffff;
+  border-radius: 6px;
+  padding: 10px;
+  margin: 10px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background-color: #003366;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+  .header__nav.header__nav--activo {
     display: flex;
-    justify-content: space-between; /* títulos al centro, menú a la derecha */
-    align-items: center;
-    padding: 10px 20px;
-    flex-wrap: wrap;
-}
-
-.titulo {
+    flex-direction: column;
+    width: 100%;
     text-align: center;
-    flex: 1;
+    background-color: #004080;
+  }
+
+  .main__presentacion-texto {
+    font-size: 0.95rem;
+  }
 }
 
-.titulo h1 {
-    margin: 0;
-}
-
-.titulo h2 {
-    margin: 0;
-    font-weight: normal;
-}
-
-/* MENÚ HAMBURGUESA */
-.menu-icono {
+@media (max-width: 480px) {
+  .header__titulo--principal {
     font-size: 1.5rem;
-    cursor: pointer;
-    margin-left: auto;
-}
-
-/* Menú oculto y visible cuando tiene clase .activo */
-nav#menu {
-    display: none;
-    flex-direction: column;
-    background-color: #004c4c;
-    width: 100%;
-    text-align: center;
-}
-
-nav#menu.activo {
-    display: flex;
-}
-
-nav#menu a {
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-    transition: background 0.3s;
-}
-
-nav#menu a:hover {
-    background-color: #007777;
-}
-
-/* CUERPO PRINCIPAL */
-.contenido-lateral {
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-    margin: 20px auto;
-}
-
-/* Imagen principal */
-.img-principal {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.4);
-    display: block;
-}
-
-/* Descripción */
-.descripcion {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 10px;
-    border-radius: 5px;
-}
-
-/* GALERÍA FLEX */
-.galeria {
-    margin: 40px auto;
-    max-width: 1000px;
-    text-align: center;
-}
-
-.galeria-flex {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 10px;
-}
-
-.galeria-flex img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    transition: transform 0.3s;
-}
-
-.galeria-flex img:hover {
-    transform: scale(1.05);
-}
-
-/* LISTA CURIOSIDADES */
-.lista-curiosidades {
-    list-style: none;
-    padding: 0;
-    text-align: left;
-    max-width: 600px;
-    margin: 20px auto;
-}
-
-.lista-curiosidades li {
-    background: rgba(255, 255, 255, 0.8);
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 5px;
+  }
+  .header__titulo--sub {
+    font-size: 1rem;
+  }
 }

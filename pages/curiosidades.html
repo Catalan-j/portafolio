@@ -1,46 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Curiosidades de Leonardo</title>
-    <link rel="icon" type="image/jpg" href="../assets/icon/icon.jpg">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leonardo Da Vinci - Curiosidades</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
+  <header class="header">
+    <div class="header__titulo">
+      <h1 class="header__titulo--principal">Leonardo Da Vinci</h1>
+      <h2 class="header__titulo--sub">Curiosidades</h2>
+    </div>
+    <div class="header__menu-icono" role="button" aria-expanded="false" aria-label="Abrir menú" tabindex="0">☰</div>
+    <nav id="menu" class="header__nav">
+      <a href="../index.html" class="header__nav-link">Inicio</a>
+      <a href="curiosidades.html" class="header__nav-link">Curiosidades</a>
+      <a href="https://es.wikipedia.org/wiki/Leonardo_da_Vinci" target="_blank" rel="noopener noreferrer" class="header__nav-link">Wikipedia</a>
+    </nav>
+  </header>
 
-    <header class="encabezado">
-        <div class="titulo">
-            <h1>Leonardo Da Vinci</h1>
-            <h2>Curiosidades</h2>
-        </div>
-        <div class="menu-icono" onclick="toggleMenu()">☰</div>
-        <nav id="menu">
-            <a href="../index.html">Inicio</a>
-            <a href="../pages/curiosidades.html">Curiosidades</a>
-            <a href="https://es.wikipedia.org/wiki/Leonardo_da_Vinci" target="_blank">Wikipedia</a>
-        </nav>
-    </header>
+  <main class="main">
+    <section class="curiosidades">
+      <h2 class="curiosidades__titulo">¿Sabías que...?</h2>
+      <ul class="curiosidades__lista">
+        <li class="curiosidades__item">Escribía de derecha a izquierda, con técnica de espejo.</li>
+        <li class="curiosidades__item">Diseñó máquinas voladoras siglos antes de que existieran los aviones.</li>
+        <li class="curiosidades__item">Era zurdo, vegetariano y amante de los animales.</li>
+        <li class="curiosidades__item">Solo se conservan alrededor de 15 pinturas terminadas.</li>
+      </ul>
+    </section>
+  </main>
 
-    <main>
-        <section class="galeria">
-            <h2>¿Sabías que...?</h2>
-            <ul class="lista-curiosidades">
-                <li>Leonardo escribía de derecha a izquierda, como si usara un espejo.</li>
-                <li>Diseñó máquinas voladoras siglos antes de que existieran los aviones.</li>
-                <li>Era zurdo, vegetariano y amante de los animales.</li>
-                <li>Muchos de sus inventos no se construyeron sino hasta el siglo XX.</li>
-                <li>Solo se conocen unas 15 pinturas terminadas de su autoría.</li>
-            </ul>
-        </section>
-    </main>
+  <footer class="footer">
+    <p class="footer__texto">© 2025 Sitio sobre Leonardo Da Vinci - Todos los derechos reservados</p>
+  </footer>
 
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById("menu");
-            menu.classList.toggle("activo");
-        }
-    </script>
+  <script>
+    const menuBtn = document.querySelector('.header__menu-icono');
+    const menu = document.getElementById('menu');
 
+    menuBtn.addEventListener('click', () => {
+      const abierto = menu.classList.toggle('header__nav--activo');
+      menuBtn.setAttribute('aria-expanded', String(abierto));
+    });
+
+    menuBtn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        menuBtn.click();
+      }
+    });
+  </script>
 </body>
 </html>
